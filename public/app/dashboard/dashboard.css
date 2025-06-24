@@ -1,0 +1,243 @@
+/* Import shared styles */
+@import url('../../styles.css');
+
+/* ===== OVERRIDE SHARED BODY STYLES ===== */
+body {
+    background: #f8f9fa !important;
+    display: block !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+    padding: 0 !important;
+}
+
+/* ===== APP SIDEBAR STYLES ===== */
+.app-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 15px;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.sidebar-header h2 {
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 15px 0;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: #666;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link:hover {
+    color: #000;
+    background: #f8f9fa;
+    border-left-color: #ccc;
+}
+
+.sidebar-link.active {
+    color: #000;
+    background: #f8f9fa;
+    border-left-color: #000;
+}
+
+.sidebar-link i {
+    width: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.sidebar-link span {
+    font-size: 13px;
+}
+
+.sidebar-footer {
+    padding: 15px;
+    border-top: 1px solid #e1e5e9;
+}
+
+.sidebar-logout-btn {
+    width: 100%;
+    background: #000;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.sidebar-logout-btn:hover {
+    background: #333;
+}
+
+.sidebar-logout-btn i {
+    font-size: 12px;
+}
+
+/* ===== MAIN CONTENT AREA ===== */
+.app-main {
+    margin-left: 150px;
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== DASHBOARD-SPECIFIC STYLES ===== */
+.dashboard-container {
+    /* Inherits from .card */
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dashboard-container h1 {
+    /* Inherits from .title */
+    text-align: center;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.dashboard-container p {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 32px;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid #000;
+}
+
+.dashboard-content {
+    margin-top: 30px;
+}
+
+.dashboard-content p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    background: none;
+    border-left: none;
+    padding: 0;
+}
+
+.dashboard-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-content li {
+    padding: 12px 0;
+    border-bottom: 1px solid #e1e5e9;
+    color: #666;
+    font-size: 16px;
+}
+
+.dashboard-content li:before {
+    content: "🐾";
+    margin-right: 12px;
+}
+
+.dashboard-content li:last-child {
+    border-bottom: none;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .app-sidebar {
+        width: 200px;
+    }
+    
+    .app-main {
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    
+    .app-main {
+        margin-left: 0;
+    }
+    
+    .sidebar-nav {
+        display: flex;
+        overflow-x: auto;
+        padding: 10px;
+    }
+    
+    .sidebar-link {
+        flex-shrink: 0;
+        padding: 8px 12px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .sidebar-link.active {
+        border-left-color: transparent;
+        border-bottom-color: #000;
+    }
+    
+    .sidebar-footer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+    
+    .sidebar-logout-btn {
+        width: auto;
+        padding: 6px 10px;
+    }
+    
+    .dashboard-container {
+        padding: 20px;
+    }
+    
+    .dashboard-container h1 {
+        font-size: 24px;
+    }
+    
+    .dashboard-container p {
+        font-size: 14px;
+    }
+} 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets - Tailmates</title>
+    <link rel="stylesheet" href="pets.css">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- App Sidebar Navigation -->
+    <nav class="app-sidebar">
+        <div class="sidebar-header">
+            <h2>Tailmates</h2>
+        </div>
+        <div class="sidebar-nav">
+            <a href="../dashboard/dashboard.html" class="sidebar-link">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="pets.html" class="sidebar-link active">
+                <i class="fas fa-paw"></i>
+                <span>Pets</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Playdates</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <button class="sidebar-logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Log Out</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+        <div class="app-container">
+            <div class="pets-header">
+                <h1 class="title">My Pets</h1>
+                <button class="add-pet-btn" id="addPetBtn">
+                    <i class="fas fa-plus"></i>
+                    Add Pet
+                </button>
+            </div>
+
+            <!-- Pet Cards Container -->
+            <div class="pets-grid" id="petsGrid">
+                <!-- Pet cards will be dynamically added here -->
+            </div>
+
+            <!-- Add Pet Modal -->
+            <div class="modal" id="addPetModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Add New Pet</h2>
+                        <button class="close-btn" id="closeModal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <form id="addPetForm" class="pet-form">
+                        <div class="form-group">
+                            <label for="petName">Pet Name</label>
+                            <input type="text" id="petName" name="petName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="petType">Pet Type</label>
+                            <select id="petType" name="petType" required>
+                                <option value="">Select pet type</option>
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
+                                <option value="bird">Bird</option>
+                                <option value="rabbit">Rabbit</option>
+                                <option value="hamster">Hamster</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="petBreed">Breed</label>
+                            <input type="text" id="petBreed" name="petBreed">
+                        </div>
+                        <div class="form-group">
+                            <label for="petAge">Age (years)</label>
+                            <input type="number" id="petAge" name="petAge" min="0" max="30" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="petDescription">Description</label>
+                            <textarea id="petDescription" name="petDescription" rows="3" placeholder="Tell us about your pet..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Add Pet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../config.js"></script>
+    <script src="pets.js"></script>
+</body>
+</html> 

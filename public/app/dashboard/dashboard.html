@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Tailmates</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- App Sidebar Navigation -->
+    <nav class="app-sidebar">
+        <div class="sidebar-header">
+            <h2>Tailmates</h2>
+        </div>
+        <div class="sidebar-nav">
+            <a href="#" class="sidebar-link active">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="../pets/pets.html" class="sidebar-link">
+                <i class="fas fa-paw"></i>
+                <span>Pets</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Playdates</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <button class="sidebar-logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Log Out</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+        <div class="app-container">
+            <div class="dashboard-container card">
+                <h1 class="title">Welcome to Tailmates!</h1>
+                <p id="user-email"></p>
+                <div class="dashboard-content">
+                    <p>This is your pet social dashboard. Here you can:</p>
+                    <ul>
+                        <li>Find nearby pets and pet owners</li>
+                        <li>Schedule playdates</li>
+                        <li>Join the pet community</li>
+                        <li>Manage your pet profiles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../config.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html> 
