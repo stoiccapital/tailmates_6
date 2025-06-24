@@ -1,6 +1,55 @@
 // Marketing page JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Mobile menu functionality
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuBackdrop = document.querySelector('.mobile-menu-backdrop');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    
+    hamburgerMenu.addEventListener('click', function() {
+        hamburgerMenu.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        mobileMenuBackdrop.classList.toggle('active');
+    });
+    
+    // Close mobile menu with close button
+    mobileMenuClose.addEventListener('click', function() {
+        hamburgerMenu.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        mobileMenuBackdrop.classList.remove('active');
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburgerMenu.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            mobileMenuBackdrop.classList.remove('active');
+        });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (mobileMenu.classList.contains('active') && 
+            !mobileMenu.contains(e.target) && 
+            !hamburgerMenu.contains(e.target)) {
+            hamburgerMenu.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            mobileMenuBackdrop.classList.remove('active');
+        }
+    });
+    
+    // Close mobile menu on window resize (if desktop)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburgerMenu.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            mobileMenuBackdrop.classList.remove('active');
+        }
+    });
+    
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     

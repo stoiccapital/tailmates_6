@@ -97,28 +97,26 @@ function closeModalFunc() {
     console.log('🔒 Modal closed and reset');
 }
 
-// Create pet card HTML
-function createPetCard(pet) {
+// Create pet table row HTML
+function createPetRow(pet) {
     return `
-        <div class="pet-card" data-pet-id="${pet.id}">
-            <div class="pet-header">
-                <h3 class="pet-name">${pet.name}</h3>
-                <span class="pet-type">${pet.type}</span>
-            </div>
-            <div class="pet-info">
-                ${pet.breed ? `<p><strong>Breed:</strong> ${pet.breed}</p>` : ''}
-                ${pet.age ? `<p><strong>Age:</strong> ${pet.age} years</p>` : ''}
-            </div>
-            ${pet.description ? `<p class="pet-description">${pet.description}</p>` : ''}
-            <div class="pet-actions">
+        <tr data-pet-id="${pet.id}">
+            <td class="pet-name-cell">${pet.name}</td>
+            <td class="pet-type-cell">
+                <span class="pet-type-badge">${pet.type}</span>
+            </td>
+            <td>${pet.breed || '-'}</td>
+            <td>${pet.age ? `${pet.age} years` : '-'}</td>
+            <td>${pet.description || '-'}</td>
+            <td class="pet-actions-cell">
                 <button class="pet-action-btn edit-btn" onclick="editPet('${pet.id}')">
                     <i class="fas fa-edit"></i> Edit
                 </button>
                 <button class="pet-action-btn delete-btn" onclick="deletePet('${pet.id}')">
                     <i class="fas fa-trash"></i> Delete
                 </button>
-            </div>
-        </div>
+            </td>
+        </tr>
     `;
 }
 
@@ -133,7 +131,25 @@ function renderPets() {
             </div>
         `;
     } else {
-        petsGrid.innerHTML = pets.map(pet => createPetCard(pet)).join('');
+        petsGrid.innerHTML = `
+            <div class="pets-table-container">
+                <table class="pets-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Breed</th>
+                            <th>Age</th>
+                            <th>Description</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${pets.map(pet => createPetRow(pet)).join('')}
+                    </tbody>
+                </table>
+            </div>
+        `;
     }
 }
 
