@@ -272,17 +272,22 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .modal-content {
     background-color: white;
-    margin: 5% auto;
+    margin: 20px auto;
     padding: 0;
     border-radius: 12px;
     width: 90%;
     max-width: 500px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     animation: modalSlideIn 0.3s ease-out;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
 }
 
 @keyframes modalSlideIn {
@@ -452,9 +457,14 @@ body {
         grid-template-columns: 1fr;
     }
     
+    .modal {
+        padding: 10px;
+    }
+    
     .modal-content {
-        margin: 10% auto;
+        margin: 10px auto;
         width: 95%;
+        max-height: calc(100vh - 20px);
     }
 }
 
